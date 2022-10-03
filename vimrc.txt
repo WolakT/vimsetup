@@ -121,23 +121,52 @@ nnoremap <space> viw
 :nnoremap H 0w
 
 "map L to go to the end of the line
-:nnoremap L %
+:nnoremap L $
 
 "edit quickly the vimrc file
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+"comment a block of code
+vnoremap <silent> # :s/^/#/<cr>:noh<cr>
+vnoremap <silent> ( :s/^#//<cr>:noh<cr>
+
+"duplicate the line
+nnoremap yy o<esc>k
+
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
+"this is to move to tabs quickly
+nnoremap <leader>k :tabr<cr>
+nnoremap <leader>j :tabl<cr>
+nnoremap <leader>h :tabp<cr>
+nnoremap <leader>l :tabn<cr>
+
+:hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
+:hi TabLine ctermfg=Blue ctermbg=Yellow
+:hi TabLineSel ctermfg=Red ctermbg=Yellow
+
+
 let python_highlight_all=1
 syntax on
 
 if has('gui_running')
   set background=light
-  colorscheme zenburn 
+  colorscheme solarized 
 else
   colorscheme zenburn
 endif
 
 call togglebg#map("<F5>")
 
+"NERDTree setup
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+" Open the existing NERDTree on each new tab.
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
 
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
@@ -148,5 +177,4 @@ endif " has autocmd
 
 set clipboard=unnamed
 
-" Start NERDTree and put the cursor back in the other window.
-autocmd VimEnter * NERDTree | wincmd p
+
