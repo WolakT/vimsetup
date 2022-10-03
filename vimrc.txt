@@ -147,6 +147,11 @@ nnoremap <leader>l :tabn<cr>
 :hi TabLine ctermfg=Blue ctermbg=Yellow
 :hi TabLineSel ctermfg=Red ctermbg=Yellow
 
+"tabcompletion search down in subfolders
+set path+=**
+
+"display all matching files when we tab complete
+set wildmenu
 
 let python_highlight_all=1
 syntax on
