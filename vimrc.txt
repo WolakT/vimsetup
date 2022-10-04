@@ -88,8 +88,8 @@ endif
 augroup vimrcEx
   au!
 
-" For all text files set 'textwidth' to 78 characters.
-autocmd FileType text setlocal textwidth=7oToDefinitionElseDeclaration<CR>
+autocmd FileType text setlocal nonu
+autocmd FileType text setlocal spell
 
 "mapping the leader to ,
 :let mapleader = ","
@@ -118,7 +118,7 @@ nnoremap <space> viw
 :nnoremap _ ddkP
 
 "map H to go to the beginning of the line first word
-:nnoremap H 0w
+:nnoremap H 0^ 
 
 "map L to go to the end of the line
 :nnoremap L $
