@@ -126,9 +126,6 @@ nnoremap <space> viw
 "edit quickly the vimrc file
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-"fuGITive shortcuts
-:nnoremap <leader>gd :Gvdiffsplit<cr>
-
 "comment a block of code
 vnoremap <silent> # :s/^/#/<cr>:noh<cr>
 vnoremap <silent> ( :s/^#//<cr>:noh<cr>
