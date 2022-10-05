@@ -87,6 +87,7 @@ endif
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
   au!
+autocmd BufNewFile *dag.py 0r ~/.vim/templates/template_dag.py
 
 autocmd FileType text setlocal nonu
 autocmd FileType text setlocal spell
@@ -135,6 +136,12 @@ vnoremap <silent> ( :s/^#//<cr>:noh<cr>
 
 "duplicate the line
 nnoremap yy o<esc>k
+
+"assign a new movement parameter p i(
+:onoremap p i(
+
+"assign a new movement for the body of function
+:onoremap b /return<cr>
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
