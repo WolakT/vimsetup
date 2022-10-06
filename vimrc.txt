@@ -107,7 +107,7 @@ autocmd FileType text setlocal spell
 :vnoremap <leader>' <esc>`<i'<esc>`>a'<esc>l
 
 let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "map space to highlight the whole word
 nnoremap <space> viw
@@ -142,6 +142,16 @@ nnoremap yy o<esc>k
 
 "assign a new movement for the body of function
 :onoremap b /return<cr>
+
+"assign new movement to delete all withing parentheses and go inside in insert
+"mode
+:onoremap in( :<c-u>normal! f(vi(<cr>
+:onoremap in{ :<c-u>normal! f{vi{<cr>
+
+"assigne new movement to delete everything what's inside last parentheses:
+:onoremap il( :<c-u>normal! F)vi(<cr>
+:onoremap il{ :<c-u>normal! F}vi{<cr>
+
 
 set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
