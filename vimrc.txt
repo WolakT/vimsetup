@@ -86,11 +86,12 @@ endif
 
 " Put these in an autocmd group, so that we can delete them easily.
 augroup vimrcEx
-  au!
+	autocmd!
 autocmd BufNewFile *dag.py 0r ~/.vim/templates/template_dag.py
-
-autocmd FileType text setlocal nonu
 autocmd FileType text setlocal spell
+autocmd FileType text setlocal nonu
+augroup END
+
 
 "mapping the leader to ,
 :let mapleader = ","
@@ -108,6 +109,14 @@ autocmd FileType text setlocal spell
 
 let g:ycm_autoclose_preview_window_after_completion=1
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+"map leader + y to copy text into clipboard
+vnoremap <leader>y "+y
+
+"map leader + p to paste from clipboard
+inoremap <leader>p <ESC>"+pa
+vnoremap <leader>p "+p<ESC>
+nnoremap <leader>p "+p
 
 "map space to highlight the whole word
 nnoremap <space> viw
@@ -187,11 +196,16 @@ call togglebg#map("<F5>")
 
 "NERDTree setup
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
+"NERDTree group
+augroup nerdtreegroup
+autocmd!
+	
 " Open the existing NERDTree on each new tab.
 autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 
 " Start NERDTree and put the cursor back in the other window.
 autocmd VimEnter * NERDTree | wincmd p
+augroup END
 
 if has ('autocmd') " Remain compatible with earlier versions
  augroup vimrc     " Source vim configuration upon save
