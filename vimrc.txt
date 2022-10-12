@@ -139,9 +139,17 @@ nnoremap <space> viw
 "fuGITive shortcuts
 :nnoremap <leader>gd :Gvdiffsplit<cr>
 
+augroup html_comment
+	autocmd!
+:autocmd FileType html vnoremap <buffer> # <ESC>`<0i<!--<ESC>`>A--><ESC>
+:autocmd FileType html vnoremap <buffer> ( <ESC>`<0xxxx`>$xxx
 "comment a block of code
-vnoremap <silent> # :s/^/#/<cr>:noh<cr>
-vnoremap <silent> ( :s/^#//<cr>:noh<cr>
+:autocmd FileType python :vnoremap <buffer> <silent># :s/^/#/<cr>:noh<cr>
+:autocmd FileType python :vnoremap <buffer> <silent>( :s/^#//<cr>:noh<cr>
+augroup END
+
+
+"comment inside html
 
 "duplicate the line
 nnoremap yy o<esc>k
