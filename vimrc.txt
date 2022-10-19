@@ -26,14 +26,13 @@ Plugin 'vim-scripts/indentpython.vim'
 Bundle 'Valloric/YouCompleteMe'
 Plugin 'nvie/vim-flake8'
 Plugin 'vim-syntastic/syntastic'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+"Plugin 'jnurmine/Zenburn'
 Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-
+Plugin 'tomasiser/vim-code-dark'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -95,6 +94,9 @@ augroup END
 
 "mapping the leader to ,
 :let mapleader = ","
+
+" Apply YCM FixIt
+:nnoremap <leader>fi :YcmCompleter FixIt<CR>
 
 "this is to add double quotes to a word
 :nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
@@ -193,14 +195,13 @@ set wildmenu
 let python_highlight_all=1
 syntax on
 
-if has('gui_running')
-  set background=light
-  colorscheme solarized 
-else
-  colorscheme zenburn
-endif
-
-call togglebg#map("<F5>")
+"if has('gui_running')
+"  set background=dark
+"  colorscheme zenburn 
+"else
+"  colorscheme zenburn
+"endif
+colorscheme codedark
 
 "NERDTree setup
 let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
