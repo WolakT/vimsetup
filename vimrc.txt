@@ -10,6 +10,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+inoremap <C-J> <C-W><C-J>
+inoremap <C-K> <C-W><C-K>
 
 "enable the 256-color mode for Vim.
 set t_Co=256
@@ -97,6 +99,9 @@ augroup END
 
 " Apply YCM FixIt
 :nnoremap <leader>fi :YcmCompleter FixIt<CR>
+
+"increaser preview height
+:set previewheight=20
 
 "this is to add double quotes to a word
 :nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
