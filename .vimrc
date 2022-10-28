@@ -242,6 +242,6 @@ augroup END
 "    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
 "  augroup END
 "endif " has autocmd
-
+"dupa dupa
 "source the vim file
 :nnoremap <leader>r :source $MYVIMRC<cr>
