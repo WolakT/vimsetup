@@ -2,8 +2,11 @@ set nocompatible              " required
 filetype off                  " required
 set nu
 set ic
+set cursorline
 set splitbelow
 set splitright
+set showmatch
+set clipboard=unnamed
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -13,6 +16,9 @@ nnoremap <C-H> <C-W><C-H>
 inoremap <C-J> <C-W><C-J>
 inoremap <C-K> <C-W><C-K>
 
+"go also to visually wrapped lines
+nnoremap j gj
+nnoremap k gk
 "enable the 256-color mode for Vim.
 set t_Co=256
 " set the runtime path to include Vundle and initialize
@@ -35,6 +41,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tomasiser/vim-code-dark'
+Plugin 'mbbill/undotree'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -125,6 +132,15 @@ inoremap <leader>p <ESC>"+pa
 vnoremap <leader>p "+p<ESC>
 nnoremap <leader>p "+p
 
+"map leader u to undotree
+nnoremap <leader>u :UndotreeToggle<CR>
+
+"edit quickly the vimrc file
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
+"fuGITive shortcuts
+:nnoremap <leader>gd :Gvdiffsplit<cr>
+
 "map space to highlight the whole word
 nnoremap <space> viw
 
@@ -135,16 +151,21 @@ nnoremap <space> viw
 :nnoremap _ ddkP
 
 "map H to go to the beginning of the line first word
-:nnoremap H 0^ 
+:nnoremap H ^
 
 "map L to go to the end of the line
 :nnoremap L $
 
-"edit quickly the vimrc file
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-"fuGITive shortcuts
-:nnoremap <leader>gd :Gvdiffsplit<cr>
+
+" highlight last inserted text
+nnoremap gV `[v`]
+
+" CtrlP settings
+let g:ctrlp_match_window = 'bottom,order:ttb'
+let g:ctrlp_switch_buffer = 0
+let g:ctrlp_working_path_mode = 0
+"let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
 augroup html_comment
 	autocmd!
@@ -200,12 +221,6 @@ set wildmenu
 let python_highlight_all=1
 syntax on
 
-"if has('gui_running')
-"  set background=dark
-"  colorscheme zenburn 
-"else
-"  colorscheme zenburn
-"endif
 colorscheme codedark
 
 "NERDTree setup
@@ -221,13 +236,12 @@ autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 autocmd VimEnter * NERDTree | wincmd p
 augroup END
 
-if has ('autocmd') " Remain compatible with earlier versions
- augroup vimrc     " Source vim configuration upon save
-    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
-    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
-  augroup END
-endif " has autocmd
+"if has ('autocmd') " Remain compatible with earlier versions
+" augroup vimrc     " Source vim configuration upon save
+"    autocmd! BufWritePost $MYVIMRC source % | echom "Reloaded " . $MYVIMRC | redraw
+"    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
+"  augroup END
+"endif " has autocmd
 
-set clipboard=unnamed
-
-
+"source the vim file
+:nnoremap <leader>r :source $MYVIMRC<cr>
