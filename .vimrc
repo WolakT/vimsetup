@@ -141,12 +141,6 @@ nnoremap <leader>u :UndotreeToggle<CR>
 "fuGITive shortcuts
 :nnoremap <leader>gd :Gvdiffsplit<cr>
 
-"this is to move to tabs quickly
-nnoremap <leader>k :tabr<cr>
-nnoremap <leader>j :tabl<cr>
-nnoremap <leader>h :tabp<cr>
-nnoremap <leader>l :tabn<cr>
-"test comment
 "map space to highlight the whole word
 nnoremap <space> viw
 
@@ -208,6 +202,11 @@ set laststatus=2 " Always display the statusline in all windows
 set showtabline=2 " Always display the tabline, even if there is only one tab
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
+"this is to move to tabs quickly
+nnoremap <leader>k :tabr<cr>
+nnoremap <leader>j :tabl<cr>
+nnoremap <leader>h :tabp<cr>
+nnoremap <leader>l :tabn<cr>
 
 :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 :hi TabLine ctermfg=Blue ctermbg=Yellow
