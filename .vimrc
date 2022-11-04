@@ -123,7 +123,7 @@ augroup END
 
 let g:ycm_autoclose_preview_window_after_completion=1
 "map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
-
+"dupa"
 "map leader + y to copy text into clipboard
 vnoremap <leader>y "+y
 
@@ -242,6 +242,6 @@ augroup END
 "    autocmd! BufWritePost $MYGVIMRC if has('gui_running') | so % | echom "Reloaded " . $MYGVIMRC | endif | redraw
 "  augroup END
 "endif " has autocmd
-"dupa2 dupa2
+
 "source the vim file
 :nnoremap <leader>r :source $MYVIMRC<cr>
