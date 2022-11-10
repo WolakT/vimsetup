@@ -208,6 +208,15 @@ nnoremap <leader>j :tabl<cr>
 nnoremap <leader>h :tabp<cr>
 nnoremap <leader>l :tabn<cr>
 
+"this is to navigate buffers:
+nnoremap <leader>f :bn<CR>
+nnoremap <leader>b :bp<CR>
+nnoremap <leader>1 :1b<CR>
+nnoremap <leader>2 :2b<CR>
+nnoremap <leader>3 :3b<CR>
+nnoremap <leader>4 :4b<CR>
+nnoremap <leader>5 :5b<CR>
+
 :hi TabLineFill ctermfg=LightGreen ctermbg=DarkGreen
 :hi TabLine ctermfg=Blue ctermbg=Yellow
 :hi TabLineSel ctermfg=Red ctermbg=Yellow
