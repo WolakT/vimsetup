@@ -42,6 +42,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'mbbill/undotree'
+Plugin 'dense-analysis/ale'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
@@ -254,3 +255,15 @@ augroup END
 
 "source the vim file
 :nnoremap <leader>r :source $MYVIMRC<cr>
+
+"ALE linter setup:
+let g:ale_linters = {'python': 'all'}
+let g:ale_fixers = {'python': ['isort', 'yapf', 'remove_trailing_lines', 'trim_whitespace']}
+let g:ale_lsp_suggestions = 1
+let g:ale_fix_on_save = 1
+let g:ale_go_gofmt_options = '-s'
+let g:ale_go_gometalinter_options = '— enable=gosimple — enable=staticcheck'
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
