@@ -43,6 +43,7 @@ Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 Plugin 'tomasiser/vim-code-dark'
 Plugin 'mbbill/undotree'
 Plugin 'dense-analysis/ale'
+Plugin 'hashivim/vim-terraform'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
