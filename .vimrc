@@ -7,7 +7,26 @@ set splitbelow
 set splitright
 set showmatch
 set clipboard=unnamed
+set undofile
+"set undolevels=1000         " How many undos
+"set undoreload=10000        " number of lines to save for undo
+set backup                        " enable backups
+set swapfile                      " enable swaps
+set undodir=~/.vim/temp/undo     " undo files
+set backupdir=~/.vim/temp/backup " backups
+set directory=~/.vim/temp/swap   " swap files
 
+" Make those folders automatically if they don't already exist.
+"if !isdirectory(expand(&undodir))
+"    call mkdir(expand(&undodir), "p")
+"endif
+"if !isdirectory(expand(&backupdir))
+"    call mkdir(expand(&backupdir), "p")
+"endif
+"if !isdirectory(expand(&directory))
+"    call mkdir(expand(&directory), "p")
+"endif
+"setting swap file to other directory
 "split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -143,6 +162,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 "fuGITive shortcuts
 :nnoremap <leader>gd :Gvdiffsplit<cr>
 
+"Terraform format shortcut
+:nnoremap <leader>tf :TerraformFmt<cr>
+
 "map space to highlight the whole word
 nnoremap <space> viw
 
@@ -178,6 +200,8 @@ augroup html_comment
 :autocmd FileType python :vnoremap <buffer> <silent>( :s/^#//<cr>:noh<cr>
 augroup END
 
+"put a word into a quotes
+vnoremap ' <ESC>bi'<ESC>ea'<ESC>
 
 "comment inside html
 
