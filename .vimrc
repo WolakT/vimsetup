@@ -7,6 +7,7 @@ set splitbelow
 set splitright
 set showmatch
 set clipboard=unnamed
+"setting directories for the backup, undo, swap fileS
 set undofile
 "set undolevels=1000         " How many undos
 "set undoreload=10000        " number of lines to save for undo
