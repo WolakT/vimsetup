@@ -122,6 +122,10 @@ autocmd FileType text setlocal spell
 autocmd FileType text setlocal nonu
 augroup END
 
+augroup python_format
+    autocmd!
+    autocmd BufWritePost *.py silent !black %
+augroup end
 
 "mapping the leader to ,
 :let mapleader = ","
@@ -165,6 +169,9 @@ nnoremap <leader>u :UndotreeToggle<CR>
 
 "Terraform format shortcut
 :nnoremap <leader>tf :TerraformFmt<cr>
+
+"Syntastic check
+:nnoremap <leader>sc :SyntasticCheck<cr>
 
 "map space to highlight the whole word
 nnoremap <space> viw
